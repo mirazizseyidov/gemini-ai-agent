@@ -1,42 +1,30 @@
-Adaptive Personal Assistant Agent - Notes
+# Gemini AI Agent
 
-Files:
-- personal_assistant_agent.py
-- README_personal_assistant_agent.txt
+## Overview
+This project implements an adaptive AI personal assistant using the Google Gemini API.  
+The agent follows the ReAct pattern (Reason → Act → Observe) and applies SOLID principles and design patterns.
 
-Install:
-    pip install google-genai requests
+## Architecture
+- Agent – controls reasoning loop
+- MemoryManager – stores conversation history
+- ToolRegistry – manages tools dynamically
+- BaseTool – abstract tool interface
 
-Set API key:
-Windows CMD:
-    set GEMINI_API_KEY=your_api_key
+## Features
+- Natural language interaction
+- Contextual memory
+- Automatic tool selection
+- Robust error handling
 
-PowerShell:
-    $env:GEMINI_API_KEY="your_api_key"
+## Tools
+- Calculator
+- Time
+- Weather
+- File Reader (custom)
+- Unit Converter (custom)
 
-Linux/macOS:
-    export GEMINI_API_KEY="your_api_key"
+## Installation
+pip install -r requirements.txt
 
-Run:
-    python personal_assistant_agent.py
-
-Architecture highlights:
-- BaseTool: abstract interface for all tools
-- ToolRegistry: dynamic registration/execution (Factory/Registry)
-- MemoryManager: session conversation memory
-- PersonalAssistantAgent: ReAct loop orchestration
-- EventBus + ConsoleLoggerObserver: optional Observer pattern
-
-Included tools:
-- calculator
-- current_time
-- weather_lookup
-- read_local_file (custom)
-- unit_converter (custom)
-
-Example prompts:
-- What time is it in UTC+02:00?
-- Calculate (45*12)/3
-- What's the weather in Riga?
-- Convert 15 miles to kilometers.
-- Read the file ./notes.txt
+## Run
+python personal_assistant_agent.py
